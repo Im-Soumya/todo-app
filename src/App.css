@@ -1,38 +1,47 @@
+body {
+  font-family: 'Karla', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 400px;
+  /* height: 800px; */
+  border: 2px solid #b100e8;
+  border-radius: 0.5rem;
+  box-shadow: 16px 15px 27px -11px rgba(77,0,77,0.63);
+  align-content: center;
+  padding: 20px 40px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container > h1 {
+  padding-bottom: 25px;
+  margin: 0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.formGroup {
+  margin-bottom: 25px;
+}
+.todoInput {
+  width: 225px;
+  height: 25;
+  font-family: 'Karla', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+.addBtn {
+  font-family: 'Karla', sans-serif;
+}
+.todoContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
+  align-content: space-around;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todoContainer > p {
+  margin: 0;
 }
