@@ -37,6 +37,7 @@ function App() {
     <div className="App">
       <div className='container'>
         <h1>Todo App</h1>
+        
         <TodoForm addTodo={addTodo} />
         <Todos todos={todos} Completed={Completed} editTaskName={editTaskName} />
       </div>

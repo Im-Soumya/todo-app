@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 
-import { Fab, FormControl, Input, InputLabel } from '@mui/material';
+import { Fab, FormControl, InputLabel, OutlinedInput } from '@mui/material';
 
 const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState('')
@@ -23,8 +23,8 @@ const TodoForm = ({ addTodo }) => {
     <div className='formGroup'>
       <form onSubmit={handleSubmit}>
         <FormControl>
-          <InputLabel>Add a Task</InputLabel>
-          <Input
+          <InputLabel htmlFor='outlined-component' className='label'>Add a Task</InputLabel>
+          <OutlinedInput
             label='Add Todo'
             value={value}
             color='secondary'

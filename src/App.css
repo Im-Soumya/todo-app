@@ -4,6 +4,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #c4b5fd;
 }
 
 .App {
@@ -25,16 +26,25 @@ body {
 }
 .formGroup {
   margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
 }
+
 .todoInput {
-  width: 225px;
-  height: 25;
+  width: 200px;
+  height: 45px;
   font-family: 'Karla', sans-serif;
   padding: 0;
   margin: 0;
+  color: #FFF;
 }
 .addBtn {
   font-family: 'Karla', sans-serif;
+  margin-left: 10px;
+  height: 45px;
 }
 .todoContainer {
   display: flex;
