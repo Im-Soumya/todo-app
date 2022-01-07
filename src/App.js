@@ -6,31 +6,38 @@ import './App.css';
 function App() {
   const [todos, setTodos] = useState([
     {
-      id: 1,
+      id: new Date().getTime(),
       text: 'Write a todo below',
-      isComplete: false
-    },
-    {
-      id: 2,
-      text: 'Yes, Go on!',
       isComplete: false
     }
   ])
   
   const addTodo = (value) => {
-    setTodos([...todos, {text: value}])
+    setTodos([
+      ...todos, 
+      {
+        id: new Date().getTime(),
+        text: value,
+        isComplete: false
+      }
+    ])
   }
 
-  const Completed = (index) => {
-    const newTodos = [...todos]
-    newTodos[index].isComplete = !newTodos[index].isComplete
-    setTodos(newTodos)
+  const Completed = (id) => {
+    const updatedTodos = [...todos].map(todo => {
+      if(todo.id === id) {
+        todo.isComplete = !todo.isComplete
+      }
+      return todo
+    })
+    setTodos(updatedTodos)
+    console.log(id)
   }
 
-  const editTaskName = (title, index) => {
-    const newTodos = [...todos]
-    newTodos[index].text = title
-    setTodos(newTodos)
+  const deleteTodo = (id) => {
+    const updatedTodos = [...todos].filter(todo => todo.id !== id)
+    setTodos(updatedTodos)
+    console.log(id)
   }
 
   return (
@@ -39,7 +46,7 @@ function App() {
         <h1>Todo App</h1>
         
         <TodoForm addTodo={addTodo} />
-        <Todos todos={todos} Completed={Completed} editTaskName={editTaskName} />
+        <Todos todos={todos} Completed={Completed} deleteTodo={deleteTodo} />
       </div>
     </div>
   );

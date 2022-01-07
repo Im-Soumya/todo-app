@@ -1,34 +1,42 @@
 import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
-import { List, ListItem } from '@mui/material';
+import Button from '@mui/material/Button';
 
-const Todos = ({ todos, Completed, editTaskName }) => {
+const Todos = ({ todos, Completed, deleteTodo }) => {
   return (
     <div>
       {todos.map((todo, index) => <Todo 
         todo={todo} 
         key={index} 
-        index= {index} 
+        index= {todo.id} 
         Completed={Completed}
-        editTaskName={editTaskName}
+        deleteTodo={deleteTodo}
       />)}
     </div>
   )
 }
 
-const Todo = ({ todo, index, Completed }) => {
+const Todo = ({ todo, Completed, deleteTodo }) => {
   return (
     <div className='todoContainer'>        
         <p style={{textDecoration: todo.isComplete ? 'line-through' : ''}}>
-          <Checkbox 
+          <Checkbox  
             name='completed'
             color='secondary'
             type='checkbox' 
-            onChange={() =>Completed(index)} 
-            id={index}
+            checked={todo.isComplete}
+            onChange={() =>Completed(todo.id)} 
+            id={todo.id}
           />
           {' '}
-          <label htmlFor={index}>{todo.text}</label>
+          <label htmlFor={todo.id} className='todoText'>{todo.text}</label>
+          <Button
+            variant='outlined'
+            color='error'
+            className='delBtn'
+            onClick={() => deleteTodo(todo.id)}
+            style={{fontSize: 10}}
+          >Delete</Button>
         </p>
     </div>
   )

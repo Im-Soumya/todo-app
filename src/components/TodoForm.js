@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import AddTaskIcon from '@mui/icons-material/AddTask';
 import Button from '@mui/material/Button';
-
-import { Fab, FormControl, InputLabel, OutlinedInput } from '@mui/material';
+import { FormControl, InputLabel, Input } from '@mui/material';
 
 const TodoForm = ({ addTodo }) => {
   const [value, setValue] = useState('')
@@ -12,9 +12,6 @@ const TodoForm = ({ addTodo }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if(!value) {
-      return
-    }
     addTodo(value)
     setValue('')
   }
@@ -24,33 +21,27 @@ const TodoForm = ({ addTodo }) => {
       <form onSubmit={handleSubmit}>
         <FormControl>
           <InputLabel htmlFor='outlined-component' className='label'>Add a Task</InputLabel>
-          <OutlinedInput
+          <Input
             label='Add Todo'
             value={value}
             color='secondary'
             type='text'
             className='todoInput'
             onChange={handleChange}
+            style={{fontFamily: 'Work Sans'}}
+            // style={{fontSize: 20}}
           />
         </FormControl>
-        {/* <Fab>
-          <Button 
-            disabled={!value}
-            variant='contained'
-            color='secondary'
-            className='addBtn'
-            onClick={handleSubmit}
-          />
-        </Fab> */}
+        
         <Button
           disabled={!value}
           variant='contained'
           color='secondary'
           className='addBtn'
+          cursor='pointer'
           onClick={handleSubmit}
-        >
-          Add
-        </Button>
+          style={{fontSize: 15}}
+        >Add</Button>
       </form>
     </div>
   )
