@@ -40,7 +40,7 @@ const TodoForm = ({ addTodo }) => {
           className='addBtn'
           cursor='pointer'
           onClick={handleSubmit}
-          style={{fontSize: 15}}
+          style={{fontSize: 15, fontFamily: 'Work Sans'}}
         >Add</Button>
       </form>
     </div>
